@@ -1,6 +1,7 @@
 import MessageDisplay from "@/components/MessageDisplay";
 import { mount } from "@vue/test-utils";
-
+import { getMessage } from "@/service/axios.js";
+jest.mock("@/service/axios.js");
 //testing if the call was successfull display the message
 //testing if the call was failed display the error
 describe("MessageDisplay", () => {
