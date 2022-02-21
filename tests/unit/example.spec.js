@@ -1,12 +1,15 @@
-import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+import AppHeader from "@/components/AppHeader";
+import { mount } from "@vue/test-utils";
+describe("AppHeader", () => {
+    test("if user is not loged in do not hsow log out button", async () => {
+        const wrapper = mount(AppHeader);
+        await wrapper.setData({ isLogedin: false });
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      props: { msg }
-    })
-    expect(wrapper.text()).toMatch(msg)
-  })
-})
+        expect(wrapper.find("button").isVisible()).toBe(false);
+    });
+    test("if user is  loged in show log out button", async () => {
+        const wrapper = mount(AppHeader);
+        await wrapper.setData({ isLogedin: true });
+        expect(wrapper.find("button").isVisible()).toBe(true);
+    });
+});
