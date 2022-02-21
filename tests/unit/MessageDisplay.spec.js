@@ -17,6 +17,15 @@ describe("MessageDisplay", () => {
         expect(message).toEqual(mockMessage);
     });
     it("if message call failed display the error", async () => {
+        const mockError = "something went wrong";
+        getMessage.mockRejectedValueOnce(mockError);
         const wrapper = mount(MessageDisplay);
+        await flushPromises();
+        //check if it is called
+        expect(getMessage).toHaveBeenCalledTimes(1);
+        const errorMessage = wrapper
+            .find('[data-testid="message-error"]')
+            .text();
+        expect(errorMessage).toEqual(mockError);
     });
 });
