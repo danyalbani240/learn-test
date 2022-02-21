@@ -1,10 +1,8 @@
 <template>
-    <div>
-        <form @submit.prevent="handleLogin">
-            <input type="text" v-model="name" />
-            <button type="submit">submit</button>
-        </form>
-    </div>
+    <form @submit.prevent="handleLogin">
+        <input type="text" v-model="name" />
+        <button type="submit">submit</button>
+    </form>
 </template>
 
 <script>
