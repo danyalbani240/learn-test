@@ -1,7 +1,7 @@
 <template>
     <p v-if="err" data-testid="message-error">{{ err }}</p>
 
-    <p v-else-if="message">{{ message.text }}</p>
+    <p data-testid="message" v-else-if="message">{{ message.text }}</p>
 </template>
 
 <script>
