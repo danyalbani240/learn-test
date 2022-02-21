@@ -2,7 +2,13 @@ import MessageDisplay from "@/components/MessageDisplay";
 import { mount } from "@vue/test-utils";
 import { getMessage } from "@/service/axios.js";
 import flushPromises from "flush-promises";
+
+//creating mock
 jest.mock("@/service/axios.js");
+//reset mock before each calls
+beforeEach(() => {
+    jest.clearAllMocks();
+});
 //testing if the call was successfull display the message
 //testing if the call was failed display the error
 describe("MessageDisplay", () => {
