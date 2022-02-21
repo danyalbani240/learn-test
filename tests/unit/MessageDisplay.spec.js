@@ -13,6 +13,8 @@ describe("MessageDisplay", () => {
         await flushPromises(); //get sure all of our promisses are resolved
         //checking if call is happend
         expect(getMessage).toHaveBeenCalled(1);
+        const message = wrapper.find('[data-testid="message"]');
+        expect(message).toEqual(mockMessage);
     });
     it("if message call failed display the error", async () => {
         const wrapper = mount(MessageDisplay);
