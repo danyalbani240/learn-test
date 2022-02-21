@@ -20,7 +20,7 @@ export default {
             console.log(this.message);
         } catch (e) {
             console.log(e);
-            this.err = e;
+            this.err = "something went wrong";
         }
     },
     mounted() {
