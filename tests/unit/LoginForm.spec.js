@@ -8,7 +8,8 @@ describe("LoginForm", () => {
         input.setValue("Danyal Bani");
         wrapper.trigger("submit");
 
-        const submittedCall = wrapper.emitted("formsubmit");
+        const submittedCall = wrapper.emitted("submit");
+
         expect(submittedCall).toHaveLength(1);
     });
 });
